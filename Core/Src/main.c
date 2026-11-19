@@ -97,18 +97,7 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-       if (HAL_GPIO_ReadPin(GPIOA,GPIO_PIN_9) == GPIO_PIN_SET)//写1，松开
-      {
-        HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_SET);//写1，暗
-      }
-      else
-      {
-        HAL_Delay(20);
-        if(HAL_GPIO_ReadPin(GPIOA,GPIO_PIN_9) == GPIO_PIN_RESET)
-        {
-          HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_RESET);写0，点亮
-        }
-      }
+       
   }
   /* USER CODE END 3 */
 }
@@ -150,7 +139,15 @@ void SystemClock_Config(void)
 }
 
 /* USER CODE BEGIN 4 */
-
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
+{
+  if(GPIO_Pin == GPIO_PIN_9)//判断来源
+{ 
+  HAL_Delay(20);//消抖
+  HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_RESET);//修改亮暗
+}
+break;
+}
 /* USER CODE END 4 */
 
 /**
