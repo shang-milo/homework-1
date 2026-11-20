@@ -12,6 +12,9 @@
             "serverExe": "ST-LINK_gdbserver.exe",
             "serverCwd": "C:/Users/milo/AppData/Local/stm32cube/bundles/stlink-gdbserver/7.14.0+st.2/bin",
             "serverCubeProgPath": "C:/Users/milo/AppData/Local/stm32cube/bundles/programmer/2.23.0/bin",
+            "liveWatch": {
+                "enabled": false
+            },
             "imagesAndSymbols": [
                 {
                     "imageFileName": "${workspaceFolder}/build/Debug/button.elf",
